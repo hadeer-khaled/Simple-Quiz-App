@@ -8,6 +8,7 @@
   --body-color: #013042;
   --app-color: #EBC71C;
   --white-color: white;
+  --main-border-raduis:9px;
 }
 * {
   margin: 0;
@@ -25,7 +26,7 @@ body {
   margin: 100px auto;
   padding: 2%;
   background-color: white;
-  border-radius: 2%;
+  border-radius: var(--main-border-raduis);
   color: var(--body-color);
 }
 .app h1 {
@@ -44,7 +45,7 @@ body {
   justify-content: center;
 }
 .app .quiz .answer-btn {
-  border-radius: 4px;
+  border-radius: var(--main-border-raduis);
   margin-top: 20px;
   text-align: start;
   padding: 10px 10px;
@@ -80,7 +81,7 @@ body {
   padding: 8px 50px;
   background-color: var(--body-color);
   margin: 30px auto 0px;
-  border-radius: 4px;
+  border-radius: var(--main-border-raduis);
   border: none;
   font-size: 17px;
   color: white;
