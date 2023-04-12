@@ -7,29 +7,49 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Creepster&family=Poppins:wght@200;400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;600&display=swap"
       rel="stylesheet"
     />
+    <script src="https://kit.fontawesome.com/c6e623b5c9.js" crossorigin="anonymous"></script>
     <title>Quiz App</title>
     <link rel="stylesheet" href="style.css" />
     <script src="index.js" defer></script>
   </head>
   <body>
     <div class="app">
-      <h1>Sorting Algorithms Quiz</h1>
-      <div class="quiz">
-        <h2 class="question"> Question 1</h2>
-        <div class="answers-btns">
+      <div class="welcom-div">
+        <h1>Test your knowledge with us</h1>
+        <div class="list-div">
+          <span>Quiz Categories: </span>
+          <button class="list-btn">Choose a Category<i class="fa-solid fa-caret-down"></i></button>
+          <div class="options">
+            <li id="0">Sorting Algorithms</li>
+            <li id="1">Stacks</li>
+            <li id="2">Queues</li>
+            <li id="3">Trees</li>
+          </div>
+        </div>
+        <button class="start-btn">Start Quiz!</button>
+      </div>
+
+      <div class="quiz-div">
+        <h1 class="quiz-title">Quiz Title</h1>
+        <div class="questions-div">
+          <h2 class="question">Question 1</h2>
+          <div class="answers-btns">
             <button class="answer-btn">Answer 1</button>
             <button class="answer-btn">Answer 2</button>
             <button class="answer-btn">Answer 3</button>
             <button class="answer-btn">Answer 4</button>
-        </div>
-        <div class="control">
+          </div>
+          <div class="control">
             <button class="next-btn">Next</button>
-            <div class="counter"><span class="currentIndex">1</span> of  <span class="total">0</span></div>
+            <div class="counter">
+              <span class="currentIndex">1</span> of
+              <span class="total">0</span>
+            </div>
+          </div>
         </div>
-        
       </div>
     </div>
   </body>

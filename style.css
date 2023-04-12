@@ -6,45 +6,114 @@
   --app-color: #00968845;
   --white-color: white; */
   --body-color: #013042;
-  --app-color: #EBC71C;
+  --app-color: #ebc71c;
   --white-color: white;
-  --main-border-raduis:9px;
+  --main-border-raduis: 9px;
 }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* font-family: "Creepster", cursive; */
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Creepster", cursive;
+  font-family: "Poppins", sans-serif; */
+  font-family: "Anuphan", sans-serif;
+  /* color: var(--body-color) !important; */
+}
+li {
+  list-style: none;
 }
 body {
   background-color: var(--body-color);
 }
 .app {
   width: 60%;
-  min-width: 400px;
+  /* min-width: 400px; */
   margin: 100px auto;
   padding: 2%;
   background-color: white;
   border-radius: var(--main-border-raduis);
   color: var(--body-color);
 }
-.app h1 {
+@media (max-width: 600px) {
+  .app {
+    width: 90%;
+  }
+}
+.welcom-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.show {
+  display: block !important;
+}
+.welcom-div .list-div span {
+  font-size: 20px;
+}
+.welcom-div .list-div .options {
+  display: none;
+  border: 1px solid var(--app-color);
+  border-radius: var(--main-border-raduis);
+  /* margin-top: 5px; */
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.welcom-div .list-div .options li {
+  display: block;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 17px;
+  transition: 0.2s;
+}
+.welcom-div .list-div .options li:hover {
+  padding-left: 10px;
+  border-bottom: 1px solid var(--body-color);
+}
+.welcom-div .list-div .options li:last-child {
+  margin-bottom: 0px;
+}
+
+.welcom-div .list-btn,
+.start-btn {
+  padding: 7px 20px;
+  background-color: white;
+  border: 1px solid var(--app-color);
+  border-radius: var(--main-border-raduis);
+  color: var(--body-color);
+  cursor: pointer;
+  outline: none;
+  margin-top: 10px;
+  font-size: 17px;
+}
+.welcom-div .list-btn:hover,
+.start-btn:hover {
+  background-color: var(--app-color);
+}
+.welcom-div .list-btn i {
+  padding-left: 10px;
+  font-size: 20px;
+}
+.quiz-div {
+  display: none;
+}
+.app h1.quiz-title {
   border-bottom: 5px solid var(--app-color);
   font-size: 25px;
   padding-bottom: 20px;
 }
-.app .quiz h2.question {
+.app .questions-div h2.question {
   margin-top: 20px;
   font-size: 21px;
   letter-spacing: 1.3px;
 }
-.app .quiz .answers-btns {
+.app .questions-div .answers-btns {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.app .quiz .answer-btn {
+.app .questions-div .answer-btn {
   border-radius: var(--main-border-raduis);
   margin-top: 20px;
   text-align: start;
@@ -52,30 +121,30 @@ body {
   outline: none;
   cursor: pointer;
   background: var(--white-color);
-  font-size: 16px;
+  font-size: 18px;
   border: 3px solid var(--app-color);
   color: var(--body-color);
 }
-.app .quiz .answer-btn.correct{
-    background-color: #9aeabc;
-    border: 3px solid transparent;
+.app .questions-div .answer-btn.correct {
+  background-color: #9aeabc;
+  border: 3px solid transparent;
 }
-.app .quiz .answer-btn.incorrect{
-    background-color: #ff9393;
-    border:  3px solid transparent;
+.app .questions-div .answer-btn.incorrect {
+  background-color: #ff9393;
+  border: 3px solid transparent;
 }
-.app .quiz .answer-btn:disabled{
-    cursor: not-allowed;
+.app .q .answer-btn:disabled {
+  cursor: not-allowed;
 }
-.app .quiz .answer-btn:hover:not([disabled]) {
+.app .questions-div .answer-btn:hover:not([disabled]) {
   background-color: var(--app-color);
 }
-.app .quiz .control {
-    display: flex;
-    justify-content: end;
-    margin-top: 10px;
+.app .questions-div .control {
+  display: flex;
+  justify-content: end;
+  margin-top: 10px;
 }
-.app .quiz .control .next-btn {
+.app .questions-div .control .next-btn {
   width: fit-content;
   cursor: pointer;
   padding: 8px 50px;
