@@ -33,6 +33,7 @@ body {
   background-color: white;
   border-radius: var(--main-border-raduis);
   color: var(--body-color);
+  box-shadow: 0px 0px 5px 1px #9E9E9E;
 }
 @media (max-width: 600px) {
   .app {
@@ -95,6 +96,9 @@ body {
   padding-left: 10px;
   font-size: 20px;
 }
+.welcom-div .error-msg
+{color: red ;
+ margin-top:10px;}
 .quiz-div {
   display: none;
 }

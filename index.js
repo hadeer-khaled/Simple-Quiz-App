@@ -80,24 +80,24 @@ const questions =
                 question: "A queue is a first in first out data structure?",
                 answers: [{ text: "True", flag: true },
                 { text: "false", flag: false },
-                // { text: "Divide and conquer", flag: true },
+                    // { text: "Divide and conquer", flag: true },
                     // { text: "Dynamic programming", flag: false }
                 ]
             },
             {
                 question: "A Queue uses a front and rear pointer?",
                 answers: [{ text: "True", flag: true },
-                    { text: "false", flag: false },
-                // { text: "Selection Sort", flag: false },
-                //     { text: "None of the above", flag: false }
+                { text: "false", flag: false },
+                    // { text: "Selection Sort", flag: false },
+                    //     { text: "None of the above", flag: false }
                 ]
             },
             {
                 question: "A Queue can only store 6 data items. The Queue is sent 4 data items: Bert, Cynthia, Cedric and Albert. Where does the 'Rear' pointer point?",
                 answers: [{ text: "Bert", flag: false },
-                    { text: "Cynthia", flag: false },
-                    { text: "Cedric", flag: false },
-                    { text: "Albert", flag: true }]
+                { text: "Cynthia", flag: false },
+                { text: "Cedric", flag: false },
+                { text: "Albert", flag: true }]
             },
             {
                 question: "A Queue can only store 6 data items. The Queue is sent 4 data items: Bert, Cynthia, Cedric and Albert. Where does the 'Front' pointer point?",
@@ -133,7 +133,7 @@ const questions =
                 question: "What is the average case time complexity for finding the height of the binary tree?",
                 answers: [{ text: "h = O(n)", flag: false },
                 { text: "h = O(n log n)", flag: false },
-                    { text: "h = O(log log n)", flag: false },
+                { text: "h = O(log log n)", flag: false },
                 { text: "h = O(log n)", flag: true }]
             },
             {
@@ -174,6 +174,7 @@ let startBtn = document.querySelector(".start-btn")
 
 let welcomDiv = document.querySelector(".welcom-div")
 let optionsDiv = document.querySelector(".options")
+let errorElem = document.querySelector(".error-msg")
 let quizDiv = document.querySelector(".quiz-div")
 let quizTitle = document.querySelector(".quiz-title")
 
@@ -201,7 +202,9 @@ function getSelectedCategory(option) {
         optionsDiv.classList.toggle("show")
         questionNumbers.innerHTML = questions[questionCategory].length
         quizTitle.innerHTML = `${e.target.innerHTML} Quiz`
+        startBtn.disabled = false
         startBtn.style.cursor = "pointer"
+        errorElem.style.display = "none"
     })
 }
 function startApp() {
@@ -209,7 +212,8 @@ function startApp() {
     questionCategory = -1;
     welcomDiv.style.display = "flex"
     quizDiv.style.display = "none"
-    
+    errorElem.style.display = "none"
+
 }
 function startQuiz() {
     let currentQuestion
@@ -259,7 +263,8 @@ function selectAnswer(e) {
         if (answer.dataset.correct == "true") {
             answer.classList.add("correct")
         }
-        answer.disabled = "true"
+        answer.style.cursor = "not-allowed"
+        answer.disabled = true
     })
     if (+(currentIndexDiv.innerHTML) == questions[questionCategory].length) {
         nextBtn.innerHTML = "Show Score"
@@ -292,11 +297,12 @@ Array.from(optionsDiv.children).forEach(getSelectedCategory)
 
 startBtn.addEventListener("click", () => {
     if (questionCategory < 0) {
-        let spanElem = document.createElement("span")
-        spanElem.innerHTML = "Please select a category"
-        spanElem.style.cssText="color: red ; margin-top:10px;"
-        welcomDiv.append(spanElem)
+
+        errorElem.style.display = "inline"
+
         startBtn.style.cursor = "not-allowed"
+
+        startBtn.disabled = true
     }
     else {
         welcomDiv.style.display = "none"
